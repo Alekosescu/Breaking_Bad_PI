@@ -1,0 +1,19 @@
+.background{
+    background: url("https://wallpapercave.com/wp/wp6851476.jpg") ; 
+    background-position: center;
+    background-size: cover;
+    height: 100vh;   
+}
+
+.order{
+    flex: 0 0 15%;
+    margin: 7%;
+}
+
+.new{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; 
+}

@@ -1,0 +1,8 @@
+.background{
+    background: url("https://wallpapercave.com/wp/wp6851476.jpg") ; 
+    background-position: center;
+    background-size: cover;      
+    overflow-x: scroll;
+    height: 100vh;     
+
+}
