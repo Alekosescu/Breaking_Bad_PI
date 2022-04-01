@@ -99,7 +99,7 @@ export default function Home() {
             return (
               <div key={item} className="order">
                 <div>
-                  <Link to={"/home" + el.id} style={{ textDecoration: "none" }}>
+                  <Link to={"/home/" + el.id} style={{ textDecoration: "none" }}>
                     <Card
                       name={el.name}
                       image={el.image}

@@ -1,5 +1,6 @@
 const initialState = {
   characters: [],
+  detail: [],
   allCharacters: [],
   occupations: [],
 };
@@ -23,7 +24,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         occupations: action.payload,
-      }
+      };
 
     case "FILTER_BY_STATUS":
       const allCharacters = state.allCharacters;
@@ -83,6 +84,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: action.payload,
+      };
+
+    case "GET_DELETE_DETAIL":
+      return {
+        ...state,
+        detail: [],
       };
 
     default:

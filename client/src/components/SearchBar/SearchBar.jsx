@@ -4,20 +4,23 @@ import { useDispatch } from "react-redux";
 import { getNameCharacters } from "../../actions";
 
 export default function SearchBar() {
-  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
   function handleInputChange(e) {
     e.preventDefault();
+    setName("");
     setName(e.target.value);
-    console.log(name);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(getNameCharacters(name));
-    setSearch(name);
+    if (name.length > 0) {
+      dispatch(getNameCharacters(name));
+      setName("");
+    } else {
+      alert("Please enter a name");
+    }
   }
 
   return (
@@ -30,6 +33,7 @@ export default function SearchBar() {
         <input
           type="text"
           placeholder="Search..."
+          value={name}
           onChange={(e) => handleInputChange(e)}
         />
         <button type="Submit" onClick={(e) => handleSubmit(e)}>
