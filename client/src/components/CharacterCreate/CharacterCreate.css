@@ -1,0 +1,7 @@
+.backgroundCreate {
+  background: url("https://img.wallpapersafari.com/desktop/1920/1080/22/66/cYh3TJ.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow-x: scroll;
+  height: 100vh;
+}

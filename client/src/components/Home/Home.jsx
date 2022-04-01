@@ -35,7 +35,7 @@ export default function Home() {
     dispatch(getCharacters());
   }, [dispatch]);
 
-  function handleClick(e) {
+  function handleClick(e, item) {
     e.preventDefault();
     dispatch(getCharacters());
   }
@@ -93,11 +93,12 @@ export default function Home() {
         />
 
         <SearchBar />
+
         <div className="new">
           {currentCharacters?.map((el, item) => {
             return (
-              <div className="order">
-                <div key={item}>
+              <div key={item} className="order">
+                <div>
                   <Link to={"/home" + el.id} style={{ textDecoration: "none" }}>
                     <Card
                       name={el.name}

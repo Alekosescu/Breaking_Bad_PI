@@ -1,6 +1,7 @@
 const initialState = {
   characters: [],
   allCharacters: [],
+  occupations: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -11,11 +12,19 @@ function rootReducer(state = initialState, action) {
         characters: action.payload,
         allCharacters: action.payload,
       };
+
     case "GET_NAME_CHARACTERS":
       return {
         ...state,
         characters: action.payload,
       };
+
+    case "GET_OCCUPATIONS":
+      return {
+        ...state,
+        occupations: action.payload,
+      }
+
     case "FILTER_BY_STATUS":
       const allCharacters = state.allCharacters;
       const statusFiltered =
@@ -25,7 +34,13 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         characters: statusFiltered,
-      }; 
+      };
+
+    case "POST_CHARACTER":
+      return {
+        ...state,
+      };
+
     case "FILTER_CREATED":
       const allCharacters2 = state.allCharacters;
       const createdFiltered =
@@ -37,6 +52,7 @@ function rootReducer(state = initialState, action) {
         characters:
           action.payload === "All" ? state.allCharacters : createdFiltered,
       };
+
     case "ORDER_BY_NAME":
       let sortedArr =
         action.payload === "asc"
@@ -62,11 +78,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         characters: sortedArr,
       };
+
     case "GET_DETAIL":
       return {
         ...state,
         detail: action.payload,
       };
+
     default:
       return state;
   }

@@ -26,6 +26,23 @@ export function getNameCharacters(name) {
   };
 }
 
+export function getOccupations() {
+  return async function (dispatch) {
+    let json = await axios.get("http://localhost:3001/occupation");
+    return dispatch({
+      type: "GET_OCCUPATIONS",
+      payload: json.data,
+    });
+  };
+}
+
+export function postCharacter(payload) {
+  return async function (dispatch) {
+    let json = await axios.post("http://localhost:3001/characters", payload);
+    return json;
+  };
+}
+
 export function filterCharacterByStatus(payload) {
   return {
     type: "FILTER_BY_STATUS",
@@ -47,7 +64,7 @@ export function orderByName(payload) {
   };
 }
 
-export function getDetail(id){
+export function getDetail(id) {
   return async function (dispatch) {
     try {
       let json = await axios.get("http://localhost:3001/characters/" + id);
@@ -59,4 +76,4 @@ export function getDetail(id){
       console.log(error);
     }
   };
-} 
+}

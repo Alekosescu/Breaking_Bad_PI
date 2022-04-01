@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getNameCharacters } from "../../actions";
 
 export default function SearchBar() {
+  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
@@ -16,18 +17,25 @@ export default function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(getNameCharacters(name));
+    setSearch(name);
   }
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => handleInputChange(e)}
-      />
-      <button type="Submit" onClick={(e) => handleSubmit(e)}>
-        Search
-      </button>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => handleInputChange(e)}
+        />
+        <button type="Submit" onClick={(e) => handleSubmit(e)}>
+          Search
+        </button>
+      </form>
     </div>
   );
 }
