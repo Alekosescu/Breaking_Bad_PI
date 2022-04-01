@@ -4,10 +4,21 @@ import { postCharacter, getOccupations } from "../../actions/index";
 import { useDispatch, useSelector } from "react-redux";
 import "./CharacterCreate.css";
 
+function validate(input) {
+  let errors = {};
+  if (!input.name) {
+    errors.name = "Name is required";
+  } else if (input.nickname) {
+    errors.nickname = "Nickname is required";
+  }
+  return errors;
+}
+
 export default function CharacterCreate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const occupations = useSelector((state) => state.occupations);
+  const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     name: "",
@@ -23,6 +34,12 @@ export default function CharacterCreate() {
       ...input,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
     console.log(input);
   }
 
@@ -58,6 +75,13 @@ export default function CharacterCreate() {
     navigate("/home");
   }
 
+  function handleDelete(el) {
+    setInput({
+      ...input,
+      occupation: input.occupation.filter((occ) => occ !== el),
+    });
+  }
+
   useEffect(() => {
     dispatch(getOccupations());
   }, [dispatch]);
@@ -75,6 +99,7 @@ export default function CharacterCreate() {
             name="name"
             onChange={(e) => handleChange(e)}
           />
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
         <div>
           <label>Nickname:</label>
@@ -84,6 +109,7 @@ export default function CharacterCreate() {
             name="nickname"
             onChange={(e) => handleChange(e)}
           />
+          {errors.nickname && <p className="error">{errors.nickname}</p>}
         </div>
         <div>
           <label>Birthday:</label>
@@ -135,7 +161,9 @@ export default function CharacterCreate() {
         </div>
         <select onChange={(e) => handleSelect(e)}>
           {occupations.map((occ, item) => (
-            <option key={item} value={occ.name}>{occ.name}</option>
+            <option key={item} value={occ.name}>
+              {occ.name}
+            </option>
           ))}
         </select>
 
@@ -145,6 +173,14 @@ export default function CharacterCreate() {
 
         <button type="submit">Create Character</button>
       </form>
+      {input.occupation.map((el) => (
+        <div className="divOcc">
+          <p>{el}</p>
+          <button className="botonX" onClick={() => handleDelete(el)}>
+            X
+          </button>
+        </div>
+      ))}
     </div>
   );
 }
