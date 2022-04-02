@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <div className="background">
       <Link to="/character">
-        <button>Create your Criminal</button>
+        <button className='button'>Create your Criminal</button>
       </Link>
 
       <h1 className="h1">INTERACTIVE BREAKING BAD</h1>
@@ -94,7 +94,7 @@ export default function Home() {
         <button
           onClick={(e) => {
             handleClick(e);
-          }}
+          }} className="button"
         >
           Refresh Characters
         </button>
