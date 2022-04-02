@@ -12,26 +12,29 @@ export default function Detail(props) {
     dispatch(getDetail(id));
     return function () {
       dispatch(getDeleteDetail());
-    }
+    };
   }, [dispatch, id]);
 
   const myCharacter = useSelector((state) => state.detail);
 
   return (
     <div>
+      <Link to="/home">
+        <button>Back to Home</button>
+      </Link>
       {myCharacter.length > 0 ? (
         <div>
           <h1>I am {myCharacter[0].name}</h1>
           <img
             src={myCharacter[0].img ? myCharacter[0].img : myCharacter[0].image}
             alt=""
-            width="500px"
-            height="700px"
+            width="400px"
+            height="600px"
           />
           <h2>Status: {myCharacter[0].status}</h2>
-          <p>Birthdate: {myCharacter[0].birthday}</p>
+          <p>Birthdate: { myCharacter[0].birthday}</p>
           <h5>
-            Occupations:{" "}
+            Occupations: {" "}
             {!myCharacter[0].createdAtDb
               ? myCharacter[0].occupation + " "
               : myCharacter[0].occupations.map((el) => el.name + " ")}
@@ -40,9 +43,6 @@ export default function Detail(props) {
       ) : (
         <h1>Loading...</h1>
       )}
-      <Link to="/home">
-        <button>Back to Home</button>
-      </Link>
     </div>
   );
 }

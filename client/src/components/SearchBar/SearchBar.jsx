@@ -8,8 +8,7 @@ export default function SearchBar() {
   const [name, setName] = useState("");
 
   function handleInputChange(e) {
-    e.preventDefault();
-    setName("");
+    e.preventDefault();    
     setName(e.target.value);
   }
 

@@ -59,15 +59,12 @@ export default function Home() {
 
   return (
     <div className="background">
-      <Link to="/character">Create Criminal</Link>
-      <h1>INTERACTIVE BREAKING BAD</h1>
-      <button
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        Refresh Characters
-      </button>
+      <Link to="/character">
+        <button>Create your Criminal</button>
+      </Link>
+
+      <h1 className="h1">INTERACTIVE BREAKING BAD</h1>
+
       <div>
         <select onChange={(e) => handleSort(e)}>
           <option value="asc">Ascending</option>
@@ -86,20 +83,31 @@ export default function Home() {
           <option value="api">Existing</option>
         </select>
 
+        <SearchBar />
+
         <Paginate
           charactersPerPage={charactersPerPage}
           allCharacters={allCharacters.length}
           paginate={paginate}
         />
 
-        <SearchBar />
+        <button
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
+          Refresh Characters
+        </button>
 
         <div className="new">
           {currentCharacters?.map((el, item) => {
             return (
               <div key={item} className="order">
                 <div>
-                  <Link to={"/home/" + el.id} style={{ textDecoration: "none" }}>
+                  <Link
+                    to={"/home/" + el.id}
+                    style={{ textDecoration: "none" }}
+                  >
                     <Card
                       name={el.name}
                       image={el.image}

@@ -17,3 +17,10 @@
     justify-content: space-around;
     align-items: center; 
 }
+
+.h1{
+    font-size: 3.7rem;
+    color: rgb(40, 221, 49);
+    text-shadow: 0 0 5px rgb(201, 221, 22);
+    margin: 0;
+}

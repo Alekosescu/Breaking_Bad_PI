@@ -46,9 +46,9 @@ const getAllCharacters = async (req, res) => {
   const characters = await allCharactersApiDb();
 
   if (name) {
-    const characterName = await characters.filter((el) => {
-      el.name.toLowerCase().includes(name.toLowerCase());
-    });
+    const characterName = await characters.filter((el) =>
+      el.name.toLowerCase().includes(name.toLowerCase())
+    );
     if (characterName) {
       res.status(200).send(characterName);
     } else {
@@ -80,14 +80,14 @@ const getCharactersById = async (req, res) => {
 };
 
 const postCharacter = async (req, res) => {
-  const { name, nickname, birthdate, status, image, occupation, createdAtDb } =
+  const { name, nickname, birthday, status, image, occupation, createdAtDb } =
     req.body;
   console.log(req.body);
 
   const characterCreate = await Character.create({
     name,
     nickname,
-    birthdate,
+    birthday,
     status,
     image,
     createdAtDb,
@@ -95,7 +95,7 @@ const postCharacter = async (req, res) => {
 
   const occupationDb = await Occupation.findAll({
     where: {
-      name: occupation,      
+      name: occupation,
     },
   });
 

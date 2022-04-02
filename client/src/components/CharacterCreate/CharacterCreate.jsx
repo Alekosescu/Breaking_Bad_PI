@@ -8,8 +8,10 @@ function validate(input) {
   let errors = {};
   if (!input.name) {
     errors.name = "Name is required";
-  } else if (input.nickname) {
+  } else if (!input.nickname) {
     errors.nickname = "Nickname is required";
+  } else if (!input.birthday) {
+    errors = "Birthday is required";
   }
   return errors;
 }
@@ -23,7 +25,7 @@ export default function CharacterCreate() {
   const [input, setInput] = useState({
     name: "",
     nickname: "",
-    birthdate: "",
+    birthday: "",
     image: "",
     status: "",
     occupation: [],
@@ -40,7 +42,6 @@ export default function CharacterCreate() {
         [e.target.name]: e.target.value,
       })
     );
-    console.log(input);
   }
 
   function handleCheck(e) {
@@ -67,11 +68,12 @@ export default function CharacterCreate() {
     setInput({
       name: "",
       nickname: "",
-      birthdate: "",
+      birthday: "",
       image: "",
       status: "",
       occupation: [],
     });
+    console.log("input", input);
     navigate("/home");
   }
 
@@ -88,7 +90,9 @@ export default function CharacterCreate() {
 
   return (
     <div className="backgroundCreate">
-      <Link to="/home">Back</Link>
+      <Link to="/home">
+        <button>Back to Main Page</button>
+      </Link>
       <h1>Create your Character!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
@@ -119,6 +123,7 @@ export default function CharacterCreate() {
             name="birthday"
             onChange={(e) => handleChange(e)}
           />
+          {errors.birthday && <p className="error">{errors.birthday}</p>}
         </div>
         <div>
           <label>Image:</label>
