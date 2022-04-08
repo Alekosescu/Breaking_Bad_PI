@@ -91,101 +91,113 @@ export default function CharacterCreate() {
   return (
     <div className="backgroundCreate">
       <Link to="/home">
-        <button>Back to Main Page</button>
+        <button className="botonx">Back to Main Page</button>
       </Link>
-      <h1>Create your Character!</h1>
+      <h1 className="text">Create your Character!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={input.name}
-            name="name"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.name && <p className="error">{errors.name}</p>}
-        </div>
-        <div>
-          <label>Nickname:</label>
-          <input
-            type="text"
-            value={input.nickname}
-            name="nickname"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.nickname && <p className="error">{errors.nickname}</p>}
-        </div>
-        <div>
-          <label>Birthday:</label>
-          <input
-            type="text"
-            value={input.birthday}
-            name="birthday"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.birthday && <p className="error">{errors.birthday}</p>}
-        </div>
-        <div>
-          <label>Image:</label>
-          <input
-            type="text"
-            value={input.image}
-            name="image"
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div>
-          <label>Status: </label>
-          <label>
-            Alive
+        <div className="cardCreate">
+          <div className="text1">
+            <label>Name:</label>
             <input
-              type="checkbox"
-              name="Alive"
-              value="Alive"
-              onChange={(e) => handleCheck(e)}
+              className="inputo"
+              type="text"
+              value={input.name}
+              name="name"
+              onChange={(e) => handleChange(e)}
             />
-          </label>
-          <label>
-            Deceased
+            {errors.name && <p className="error">{errors.name}</p>}
+          </div>
+          <div className="text1">
+            <label className="labelo">Nickname:</label>
             <input
-              type="checkbox"
-              name="Deceased"
-              value="Deceased"
-              onChange={(e) => handleCheck(e)}
+              className="inputo"
+              type="text"
+              value={input.nickname}
+              name="nickname"
+              onChange={(e) => handleChange(e)}
             />
-          </label>
-          <label>
-            Unknown
+            {errors.nickname && <p className="error">{errors.nickname}</p>}
+          </div>
+          <div className="text1">
+            <label className="birthday">Birthday:</label>
             <input
-              type="checkbox"
-              name="Unknown"
-              value="Unknown"
-              onChange={(e) => handleCheck(e)}
+              className="inputo"
+              type="text"
+              value={input.birthday}
+              name="birthday"
+              onChange={(e) => handleChange(e)}
             />
-          </label>
-        </div>
-        <select onChange={(e) => handleSelect(e)}>
-          {occupations.map((occ, item) => (
-            <option key={item} value={occ.name}>
-              {occ.name}
-            </option>
-          ))}
-        </select>
+            {errors.birthday && <p className="error">{errors.birthday}</p>}
+          </div>
+          <div className="text1">
+            <label className="margino">Image:</label>
+            <input
+              className="inputo"
+              type="text"
+              value={input.image}
+              name="image"
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="text1">
+            <label>Status: </label>
+            <label>
+              Alive
+              <input
+                type="radio"
+                name="Alive"
+                value="Alive"
+                onChange={(e) => handleCheck(e)}
+              />
+            </label>
+            <label>
+              Deceased
+              <input
+                type="radio"
+                name="Deceased"
+                value="Deceased"
+                onChange={(e) => handleCheck(e)}
+              />
+            </label>
+            <label>
+              Unknown
+              <input
+                type="radio"
+                name="Unknown"
+                value="Unknown"
+                onChange={(e) => handleCheck(e)}
+              />
+            </label>
+          </div>
+          <div>
+            <select onChange={(e) => handleSelect(e)} className="inputox">
+              {occupations.map((occ, item) => (
+                <option key={item} value={occ.name}>
+                  {occ.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <ul>
-          <li>{input.occupation.map((el) => el + " ,")}</li>
-        </ul>
+          <div>
+            {input.occupation.map((el) => (
+              <div className="divOcc">
+                <p>{el}</p>
+                <button className="botonX" onClick={() => handleDelete(el)}>
+                  X
+                </button>
+              </div>
+            ))}
+          </div>
 
-        <button type="submit">Create Character</button>
+          <ul>
+            <p>{input.occupation.map((el) => el + " ,")}</p>
+          </ul>
+        </div>
       </form>
-      {input.occupation.map((el) => (
-        <div className="divOcc">
-          <p>{el}</p>
-          <button className="botonX" onClick={() => handleDelete(el)}>
-            X
-          </button>
-        </div>
-      ))}
+      <button type="submit" className="botonxo">
+        Create Character
+      </button>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { getDetail, getDeleteDetail } from "../../actions/index";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import './Detail.css';
 
 export default function Detail(props) {
   const { id } = useParams();
@@ -18,27 +19,27 @@ export default function Detail(props) {
   const myCharacter = useSelector((state) => state.detail);
 
   return (
-    <div>
+    <div className='backgrouny'>
       <Link to="/home">
-        <button>Back to Home</button>
+        <button className='boton'>Back to Home</button>
       </Link>
       {myCharacter.length > 0 ? (
         <div>
           <h1>I am {myCharacter[0].name}</h1>
-          <img
+          <img className='imgx'
             src={myCharacter[0].img ? myCharacter[0].img : myCharacter[0].image}
             alt=""
-            width="400px"
-            height="600px"
+            width="300px"
+            height="400px"
           />
           <h2>Status: {myCharacter[0].status}</h2>
-          <p>Birthdate: { myCharacter[0].birthday}</p>
-          <h5>
+          <h3>Birthdate: { myCharacter[0].birthday}</h3>
+          <h3>
             Occupations: {" "}
             {!myCharacter[0].createdAtDb
               ? myCharacter[0].occupation + " "
               : myCharacter[0].occupations.map((el) => el.name + " ")}
-          </h5>
+          </h3>
         </div>
       ) : (
         <h1>Loading...</h1>
