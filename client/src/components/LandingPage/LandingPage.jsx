@@ -5,9 +5,9 @@ import './LandingPage.css';
 export default function LandingPage() {
   return (
     <div className='background'>
-      <h1>Welcome to Breaking Bad!</h1>
+      <h1 className='texto'>Welcome to Breaking Bad (feat. Rick and Morty!)</h1>
       <Link to="/home">
-        <button>Enter</button>
+        <button className='botonex'>Enter</button>
       </Link>
     </div>
   );

@@ -60,30 +60,32 @@ export default function Home() {
   return (
     <div className="background">
       <Link to="/character">
-        <button className="button">Create your Criminal</button>
+        <button className="button">Create your Criminal!</button>
       </Link>
 
-      <h1 className="h1">INTERACTIVE BREAKING BAD</h1>
+      <h1 className="h1">INTERACTIVE BREAKING BAD!</h1>
 
       <div>
-        <select onChange={(e) => handleSort(e)}>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-        <select onChange={(e) => handleFilterStatus(e)}>
-          <option value="All">All</option>
-          <option value="Alive">Alive</option>
-          <option value="Deceased">Deceased</option>
-          <option value="Unknown">Unknown</option>
-          <option value="Presumed dead">Presumed dead</option>
-        </select>
-        <select onChange={(e) => handleFilterCreated(e)}>
-          <option value="All">All</option>
-          <option value="created">Created</option>
-          <option value="api">Existing</option>
-        </select>
+        <div className="cardCreated">
+          <select onChange={(e) => handleSort(e)} className='inputoxi'>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+          <select onChange={(e) => handleFilterStatus(e)} className='inputoxi'>
+            <option value="All">All</option>
+            <option value="Alive">Alive</option>
+            <option value="Deceased">Deceased</option>
+            <option value="Unknown">Unknown</option>
+            <option value="Presumed dead">Presumed dead</option>
+          </select>
+          <select onChange={(e) => handleFilterCreated(e)} className='inputoxi'>
+            <option value="All">All</option>
+            <option value="created">Created</option>
+            <option value="api">Existing</option>
+          </select>
 
-        <SearchBar />
+          <SearchBar />
+        </div>
 
         <Paginate
           charactersPerPage={charactersPerPage}
@@ -97,7 +99,7 @@ export default function Home() {
           }}
           className="button"
         >
-          Refresh Characters
+          Refresh Characters (F5)
         </button>
 
         <div className="new">
@@ -120,9 +122,8 @@ export default function Home() {
               </div>
             );
           })}
-        </div>        
+        </div>
       </div>
     </div>
   );
 }
-

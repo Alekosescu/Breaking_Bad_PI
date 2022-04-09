@@ -181,23 +181,27 @@ export default function CharacterCreate() {
 
           <div>
             {input.occupation.map((el) => (
-              <div className="divOcc">
-                <p>{el}</p>
-                <button className="botonX" onClick={() => handleDelete(el)}>
+              <div>
+                <button
+                  className="close circle span"
+                  onClick={() => handleDelete(el)}
+                >
                   X
                 </button>
+                <div>
+                  <p className="p">{el}</p>
+                </div>
               </div>
             ))}
           </div>
-
-          <ul>
+          {/* <ul>
             <p>{input.occupation.map((el) => el + " ,")}</p>
-          </ul>
+          </ul> */}
+          <button type="submit" className="botonxo">
+            Create Character
+          </button>
         </div>
       </form>
-      <button type="submit" className="botonxo">
-        Create Character
-      </button>
     </div>
   );
 }
