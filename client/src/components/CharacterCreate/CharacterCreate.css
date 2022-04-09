@@ -59,10 +59,11 @@
     0 0 4em 1em var(--glow-spread-color),
     inset 0 0 0.75em 0.25em var(--glow-color);
   text-shadow: 0 0 0.5em var(--glow-color);
-  position: relative;
+  position: absolute;
   transition: all 0.3s;
-  top: 55%;
-}
+  bottom: -25%;
+  margin-left: -15%;
+  }
 
 .botonxo:hover {
   color: var(--btn-color);
@@ -80,7 +81,7 @@
 
 .cardCreate {
   width: 700px;
-  height: 400px;
+  height: 500px;
   border-radius: 20px;
   padding: 15px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -146,6 +147,9 @@
   width: $size;
   height: $size;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  float: right;
   background: #455a64;
   border-radius: 50%;
   box-shadow: 0 0 20px -5px rgba(white, 0.5);
@@ -226,6 +230,7 @@
   font-weight: bold;
   color: rgb(4, 4, 4);
   text-align: center;
-  font-size: 10px; 
+  font-size: 10px;
 }
+
 

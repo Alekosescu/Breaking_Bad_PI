@@ -181,14 +181,14 @@ export default function CharacterCreate() {
 
           <div>
             {input.occupation.map((el) => (
-              <div>
+              <div className='right'>
                 <button
                   className="close circle span"
                   onClick={() => handleDelete(el)}
                 >
                   X
                 </button>
-                <div>
+                <div >
                   <p className="p">{el}</p>
                 </div>
               </div>

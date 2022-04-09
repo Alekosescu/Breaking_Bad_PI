@@ -67,24 +67,26 @@ export default function Home() {
 
       <div>
         <div className="cardCreated">
-          <select onChange={(e) => handleSort(e)} className='inputoxi'>
+          <select onChange={(e) => handleSort(e)} className="inputoxi">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
-          <select onChange={(e) => handleFilterStatus(e)} className='inputoxi'>
+          <select onChange={(e) => handleFilterStatus(e)} className="inputoxi">
             <option value="All">All</option>
             <option value="Alive">Alive</option>
             <option value="Deceased">Deceased</option>
             <option value="Unknown">Unknown</option>
             <option value="Presumed dead">Presumed dead</option>
           </select>
-          <select onChange={(e) => handleFilterCreated(e)} className='inputoxi'>
+          <select onChange={(e) => handleFilterCreated(e)} className="inputoxi">
             <option value="All">All</option>
             <option value="created">Created</option>
             <option value="api">Existing</option>
           </select>
 
-          <SearchBar />
+          <div className='div'>
+            <SearchBar />
+          </div>
         </div>
 
         <Paginate
