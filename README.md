@@ -1,6 +1,7 @@
 <p align='left'>
-    <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
+    <img src='https://user-images.githubusercontent.com/43653464/164112852-b46fe7bd-939d-4339-bada-2c8db6a178f6.jpg' </img>
 </p>
+
 
 # Repaso Proyecto Individual - Breaking Bad
 
