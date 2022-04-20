@@ -3,16 +3,9 @@
 </p>
 
 <div align="center">
-<style type="text/css">
-    .btn {
-        background-color:lightgreen;
-        cursor:pointer;
-        border-radius: 12px;        
-    }
-</style>
-<button class="btn" href="https://app-deploy1.vercel.app/home">
+<a href="https://app-deploy1.vercel.app/home">
 Click Me!
-</button>
+</a>
 </div>
 
 # Repaso Proyecto Individual - Breaking Bad
